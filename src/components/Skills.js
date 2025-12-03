@@ -1,64 +1,55 @@
-import meter1 from "../assets/img/meter1.svg";
-import meter2 from "../assets/img/meter2.svg";
-import meter3 from "../assets/img/meter3.svg";
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
-import arrow1 from "../assets/img/arrow1.svg";
-import arrow2 from "../assets/img/arrow2.svg";
-import colorSharp from "../assets/img/color-sharp.png"
+import colorSharp from "../assets/img/color-sharp.png";
+import htmlLogo from "../assets/img/html.svg";
+import cssLogo from "../assets/img/css.svg";
+import jsLogo from "../assets/img/js.svg";
+import reactLogo from "../assets/img/react.svg";
+import nodeLogo from "../assets/img/nodejs.svg";
+import mongoLogo from "../assets/img/mongo.svg";
+import gitLogo from "../assets/img/git.svg";
+import pythonLogo from "../assets/img/python.svg";
+import expressLogo from "../assets/img/express.svg";
 
 export const Skills = () => {
-  const responsive = {
-    superLargeDesktop: {
-      
-      breakpoint: { max: 4000, min: 3000 },
-      items: 5
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1
-    }
-  };
-
   return (
     <section className="skill" id="skills">
-        <div className="container">
-            <div className="row">
-                <div className="col-12">
-                    <div className="skill-bx wow zoomIn">
-                        <h2>Skills</h2>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br></br> Lorem Ipsum has been the industry's standard dummy text.</p>
-                        <Carousel responsive={responsive} infinite={true} className="owl-carousel owl-theme skill-slider">
-                            <div className="item">
-                                <img src={meter1} alt="Image" />
-                                <h5>Web Development</h5>
-                            </div>
-                            <div className="item">
-                                <img src={meter2} alt="Image" />
-                                <h5>Brand Identity</h5>
-                            </div>
-                            <div className="item">
-                                <img src={meter3} alt="Image" />
-                                <h5>Logo Design</h5>
-                            </div>
-                            <div className="item">
-                                <img src={meter1} alt="Image" />
-                                <h5>Web Development</h5>
-                            </div>
-                        </Carousel>
-                    </div>
+      <div className="container">
+        <div className="row">
+          <div className="col-12">
+            <div className="skill-bx wow zoomIn">
+              <h2>Skills</h2>
+              <p>Technologies, tools, and languages I work with.</p>
+
+              <div className="skills-marquee">
+                <div className="track">
+                  <img src={htmlLogo} alt="HTML" />
+                  <img src={cssLogo} alt="CSS" />
+                  <img src={jsLogo} alt="JavaScript" />
+                  <img src={reactLogo} alt="React" />
+                  <img src={nodeLogo} alt="Node.js" />
+                  <img src={mongoLogo} alt="MongoDB" />
+                  <img src={gitLogo} alt="Git" />
+                  <img src={pythonLogo} alt="Python" />
+                  <img src={expressLogo} alt="Express" />
+
+                  {/* Duplicate for seamless loop */}
+                  <img src={htmlLogo} alt="HTML" />
+                  <img src={cssLogo} alt="CSS" />
+                  <img src={jsLogo} alt="JavaScript" />
+                  <img src={reactLogo} alt="React" />
+                  <img src={nodeLogo} alt="Node.js" />
+                  <img src={mongoLogo} alt="MongoDB" />
+                  <img src={gitLogo} alt="Git" />
+                  <img src={pythonLogo} alt="Python" />
+                  <img src={expressLogo} alt="Express" />
                 </div>
+              </div>
+
             </div>
+          </div>
         </div>
-        <img className="background-image-left" src={colorSharp} alt="Image" />
+      </div>
+
+      <img className="background-image-left" src={colorSharp} alt="" />
     </section>
-  )
-}
+  );
+};

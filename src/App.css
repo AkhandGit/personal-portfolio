@@ -617,3 +617,40 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   letter-spacing: 0.5px;
   margin-top: 20px;
 }
+
+
+
+.skills-marquee {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 30px 0;
+}
+
+.track {
+  display: flex;
+  gap: 50px;
+  white-space: nowrap;
+  animation: scroll 14s linear infinite;
+}
+
+.track img {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.track img:hover {
+  transform: scale(1.2);
+}
+
+/* Continuous Loop Animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
