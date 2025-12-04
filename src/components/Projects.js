@@ -8,10 +8,10 @@ import "../App.css";
 
 export const Projects = () => {
   const projects = [
-    { title: "Project 1", imgUrl: proj1 },
-    { title: "Project 2", imgUrl: proj2 },
-    { title: "Project 3", imgUrl: proj3 },
-    { title: "Project 4", imgUrl: proj4 },
+    { title: "Project 1", imgUrl: proj1, github: "#", demo: "#" },
+    { title: "Project 2", imgUrl: proj2, github: "#", demo: "#" },
+    { title: "Project 3", imgUrl: proj3, github: "#", demo: "#" },
+    { title: "Project 4", imgUrl: proj4, github: "#", demo: "#" },
   ];
 
   const [current, setCurrent] = useState(0);
@@ -30,32 +30,42 @@ export const Projects = () => {
       <p>Here are some of the projects I’ve worked on.</p>
 
       <div className="carousel-container">
-        <button className="carousel-btn left" onClick={prevSlide}>‹</button>
+
+        {/* Left arrow */}
+        <button className="carousel-btn left" onClick={prevSlide}>
+          ‹
+        </button>
 
         <div className="carousel">
           {projects.map((proj, index) => {
-            const position =
-              index === current
-                ? "active"
-                : index === (current - 1 + projects.length) % projects.length
-                ? "prev"
-                : index === (current + 1) % projects.length
-                ? "next"
-                : "hidden";
+            let positionClass = "hidden";
+
+            if (index === current) positionClass = "active";
+            else if (index === (current - 1 + projects.length) % projects.length)
+              positionClass = "prev";
+            else if (index === (current + 1) % projects.length)
+              positionClass = "next";
 
             return (
               <ProjectCard
                 key={index}
                 title={proj.title}
                 img={proj.imgUrl}
-                position={position}
+                github={proj.github}
+                demo={proj.demo}
+                position={positionClass}
               />
             );
           })}
         </div>
 
-        <button className="carousel-btn right" onClick={nextSlide}>›</button>
+        {/* Right arrow */}
+        <button className="carousel-btn right" onClick={nextSlide}>
+          ›
+        </button>
+
       </div>
     </section>
   );
 };
+export default Projects;
