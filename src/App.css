@@ -631,7 +631,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   display: flex;
   gap: 50px;
   white-space: nowrap;
-  animation: scroll 14s linear infinite;
+  animation: scroll 18s linear infinite;
 }
 
 .track img {
@@ -653,4 +653,196 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   100% {
     transform: translateX(-50%);
   }
+}
+
+
+/* ===================== */
+/* PROJECT CAROUSEL CSS  */
+/* ===================== */
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.carousel {
+  display: flex;
+  position: relative;
+  width: 60%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-card {
+  position: absolute;
+  width: 320px;
+  height: 380px;
+  overflow: hidden;
+  border-radius: 30px;
+  transition: all 0.5s ease;
+  opacity: 0;
+  transform: scale(0.8);
+  z-index: 1;
+}
+
+.project-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.4s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.1);
+}
+
+.project-card .project-title {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  text-shadow: 0 0 10px black;
+}
+
+/* Active (center) card */
+.project-card.active {
+  opacity: 1;
+  transform: scale(1) translateX(0);
+  z-index: 3;
+}
+
+/* Left faded preview */
+.project-card.prev {
+  opacity: 0.4;
+  transform: scale(0.85) translateX(-250px);
+  z-index: 2;
+}
+
+/* Right faded preview */
+.project-card.next {
+  opacity: 0.4;
+  transform: scale(0.85) translateX(250px);
+  z-index: 2;
+}
+
+/* Hide all extras */
+.project-card.hidden {
+  opacity: 0;
+  transform: scale(0.7);
+  pointer-events: none;
+}
+
+/* Buttons */
+.carousel-btn {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid #fff;
+  color: white;
+  font-size: 40px;
+  padding: 8px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: 10;
+}
+
+.carousel-btn:hover {
+  background: white;
+  color: black;
+}
+
+.carousel-btn.left {
+  margin-right: 25px;
+}
+
+.carousel-btn.right {
+  margin-left: 25px;
+}
+
+/* Wrapper makes center card bigger */
+.proj-card-wrapper {
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.react-multi-carousel-item--active .proj-card-wrapper {
+  transform: scale(1.15);
+  z-index: 3;
+}
+
+.react-multi-carousel-item:not(.react-multi-carousel-item--active) .proj-card-wrapper {
+  transform: scale(0.9);
+  filter: brightness(65%);
+}
+
+/* Project card base */
+.proj-imgbx {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+/* Slight zoom on hover */
+.proj-imgbx:hover {
+  transform: scale(1.08);
+}
+
+/* Image styling */
+.proj-imgbx img {
+  width: 100%;
+  border-radius: 20px;
+  display: block;
+}
+
+/* Hover icons container */
+.proj-hover-icons {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  display: flex;
+  gap: 18px;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 3;
+}
+
+.proj-hover-icons a {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px 14px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  transition: background 0.3s ease;
+}
+
+.proj-hover-icons a:hover {
+  background: #6c63ff;
+}
+
+/* Show icons on hover */
+.proj-imgbx:hover .proj-hover-icons {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+/* Text box */
+.proj-txtx {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  color: white;
+  border-radius: 0 0 20px 20px;
 }
